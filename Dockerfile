@@ -1,4 +1,5 @@
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM freyp567/ubuntu-14.04
 MAINTAINER Peter Frey<peter.frey@haufe-lexware.com>
 
 ENV REFRESHED 2016-02-17
@@ -6,7 +7,7 @@ ENV REFRESHED 2016-02-17
 ENV NGINX_VERSION 1.9.11-1~trusty
 
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
-&& echo "deb http://nginx.org/packages/mainline/debian/ trusty nginx" >> /etc/apt/sources.list \
+&& echo "deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx" >> /etc/apt/sources.list \
 && apt-get update \
 && apt-get install -y ca-certificates nginx=${NGINX_VERSION} gettext-base \
 && rm -rf /var/lib/apt/lists/*
